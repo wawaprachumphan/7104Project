@@ -11,6 +11,19 @@ st.set_page_config(
 )
 
 # --------------------------
+# Set background color (สีเดิม #f9f3ee)
+# --------------------------
+page_bg_color = "#f9f3ee"
+page_bg_style = f"""
+    <style>
+    .stApp {{
+        background-color: {page_bg_color};
+    }}
+    </style>
+"""
+st.markdown(page_bg_style, unsafe_allow_html=True)
+
+# --------------------------
 # Handle navigation via session state
 # --------------------------
 if "menu" not in st.session_state:
@@ -35,20 +48,15 @@ menu = st.session_state.menu
 # HOME PAGE
 # --------------------------
 if menu == "🏠 Home":
-    st.markdown("<h1 style='color:#6B4C3B;'>🔮 MysticSense: แพลตฟอร์มดูดวงออนไลน์</h1>", unsafe_allow_html=True)
+    st.markdown("<h1 style='color:#6B4C3B;'>🔮 PryPround: แพลตฟอร์มดูดวงออนไลน์</h1>", unsafe_allow_html=True)
     st.write("เว็บไซต์ดูดวงออนไลน์ที่ให้คุณพบกับหมอดูจากทั่วไทย พร้อมระบบ AI แนะนำสินค้าเฉพาะคุณ ✨")
 
     st.markdown("---")
 
-    # Banner แก้เป็นภาพใหม่
-    st.markdown(
-        """
-        <div style="text-align:center; margin-bottom:20px;">
-            <img src="https://media.ganeshasnaga.com/2020/01/Ganeshas-Naga-for-web.jpg" alt="Banner" style="max-width: 100%; height: auto; border-radius: 15px;" />
-        </div>
-        """,
-        unsafe_allow_html=True,
-    )
+    # Banner
+    st.image("https://media.ganeshasnaga.com/2020/01/Ganeshas-Naga-for-web.jpg", use_container_width=True)
+
+    st.markdown("---")
 
     st.markdown("## 📚 Freemium Content")
     st.write("อ่านบทความดูดวงฟรี เช่น ดวงประจำวัน ดวงความรัก การงาน การเงิน ฯลฯ")
