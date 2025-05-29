@@ -53,7 +53,7 @@ if menu == "🏠 Home":
     st.markdown("---")
 
     # Banner ที่เปลี่ยนใหม่
-    st.image("https://media.ganeshasnaga.com/2020/01/Ganeshas-Naga-for-web.jpg", use_column_width=True)
+    st.image("https://media.ganeshasnaga.com/2020/01/Ganeshas-Naga-for-web.jpg", use_container_width=True)
 
     st.markdown("---")
     
@@ -189,7 +189,6 @@ elif menu == "📜 คำทำนายและสินค้าแนะน�
 
     col1, col2, col3 = st.columns(3)
 
-   
     with col1:
         st.image(
             "https://abovediamond.com/wp-content/uploads/2024/06/ring-style.jpg",
