@@ -11,17 +11,16 @@ st.set_page_config(
 )
 
 # --------------------------
-# Set background color (สีเดิม #f9f3ee)
+# Set background color (สีพื้นหลังแบบเดิม #f9f3ee)
 # --------------------------
-page_bg_color = "#f9f3ee"
-page_bg_style = f"""
+page_bg_color = """
     <style>
-    .stApp {{
-        background-color: {page_bg_color};
-    }}
+    .stApp {
+        background-color: #f9f3ee;
+    }
     </style>
 """
-st.markdown(page_bg_style, unsafe_allow_html=True)
+st.markdown(page_bg_color, unsafe_allow_html=True)
 
 # --------------------------
 # Handle navigation via session state
@@ -48,16 +47,16 @@ menu = st.session_state.menu
 # HOME PAGE
 # --------------------------
 if menu == "🏠 Home":
-    st.markdown("<h1 style='color:#6B4C3B;'>🔮 PryPround: แพลตฟอร์มดูดวงออนไลน์</h1>", unsafe_allow_html=True)
+    st.markdown("<h1 style='color:#6B4C3B;'>🔮 MysticSense: แพลตฟอร์มดูดวงออนไลน์</h1>", unsafe_allow_html=True)
     st.write("เว็บไซต์ดูดวงออนไลน์ที่ให้คุณพบกับหมอดูจากทั่วไทย พร้อมระบบ AI แนะนำสินค้าเฉพาะคุณ ✨")
 
     st.markdown("---")
 
-    # Banner
-    st.image("https://media.ganeshasnaga.com/2020/01/Ganeshas-Naga-for-web.jpg", use_container_width=True)
+    # Banner ที่เปลี่ยนใหม่
+    st.image("https://media.ganeshasnaga.com/2020/01/Ganeshas-Naga-for-web.jpg", use_column_width=True)
 
     st.markdown("---")
-
+    
     st.markdown("## 📚 Freemium Content")
     st.write("อ่านบทความดูดวงฟรี เช่น ดวงประจำวัน ดวงความรัก การงาน การเงิน ฯลฯ")
 
@@ -146,17 +145,38 @@ elif menu == "🔐 Member Login":
     st.button("เข้าสู่ระบบ", key="login_btn")
 
 # --------------------------
-# VENDOR LOGIN PAGE
+# VENDOR LOGIN PAGE (ปรับใหม่แบ่ง 2 ส่วนตามขอ)
 # --------------------------
 elif menu == "🔮 Vendor Login":
     st.markdown("## 🧙 เข้าสู่ระบบสำหรับหมอดู")
-    st.text_input("ชื่อผู้ใช้")
-    st.text_input("อีเมล")
-    st.text_input("รหัสผ่าน", type="password")
-    st.markdown("### 🗓️ สร้าง Slot การทำนาย")
-    st.date_input("เลือกวันที่")
-    st.time_input("เลือกเวลา")
-    st.button("สร้าง Slot", key="create_slot_btn")
+
+    # ส่วน Login
+    with st.container():
+        st.markdown("### 🔐 Login")
+        username = st.text_input("ชื่อผู้ใช้", key="vendor_username")
+        email = st.text_input("อีเมล", key="vendor_email")
+        password = st.text_input("รหัสผ่าน", type="password", key="vendor_password")
+        if st.button("Login", key="vendor_login_btn"):
+            if username and email and password:
+                st.success(f"Login สำเร็จสำหรับ {username}")
+            else:
+                st.error("กรุณากรอกข้อมูลให้ครบทุกช่อง")
+
+    st.markdown("---")
+
+    # ส่วน สร้าง Slot การทำนาย
+    with st.container():
+        st.markdown("### 🗓️ สร้าง Slot การทำนาย")
+
+        # ตัวอย่างรายชื่อลูกค้า (สมมติ)
+        customer_list = ["ลูกค้า A", "ลูกค้า B", "ลูกค้า C", "ลูกค้า D"]
+        selected_customer = st.selectbox("เลือกลูกค้า", options=customer_list, key="select_customer")
+
+        selected_date = st.date_input("เลือกวันที่", key="slot_date")
+        selected_time = st.time_input("เลือกเวลา", key="slot_time")
+
+        if st.button("สร้าง Slot", key="create_slot_btn"):
+            st.success(f"สร้าง Slot สำหรับ {selected_customer} วันที่ {selected_date} เวลา {selected_time} เรียบร้อยแล้ว")
 
 # --------------------------
 # RESULT PAGE
@@ -170,16 +190,4 @@ elif menu == "📜 คำทำนายและสินค้าแนะน�
     col1, col2, col3 = st.columns(3)
 
     with col1:
-        st.image("https://abovediamond.com/wp-content/uploads/2024/06/ring-style.jpg", caption="💍 แหวนเสริมดวง", use_container_width=True)
-        if st.button("🛒", key="cart_ring"):
-            st.success("เพิ่มแหวนเสริมดวงลงในตะกร้าสินค้าแล้ว 🎉")
-
-    with col2:
-        st.image("https://assets.hermes.com/is/image/hermesproduct/amulettes-constance-pendant--121316B%2000-worn-2-0-0-320-320_g.jpg", caption="📿 สร้อยนำโชค", use_container_width=True)
-        if st.button("🛒", key="cart_necklace"):
-            st.success("เพิ่มสร้อยนำโชคลงในตะกร้าสินค้าแล้ว 🎉")
-
-    with col3:
-        st.image("https://down-th.img.susercontent.com/file/ded27948dfdeb6bbcfeac119f532c601", caption="🕯️ เทียนหอมเรียกทรัพย์", use_container_width=True)
-        if st.button("🛒", key="cart_candle"):
-            st.success("เพิ่มเทียนหอมเรียกทรัพย์ลงในตะกร้าสินค้าแล้ว 🎉")
+        st.image("https://abovediamond.com/wp-content/uploads/2024/06/ring-style.jpg", caption="💍 แหวนเสริมด
