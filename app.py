@@ -11,20 +11,22 @@ st.set_page_config(
 )
 
 # --------------------------
-# Background style CSS
+# Custom CSS for background and styling
 # --------------------------
-page_bg_color = "#f5f0e6"
-
-st.markdown(
-    f"""
-    <style>
-    .stApp {{
-        background-color: {page_bg_color};
-    }}
-    </style>
-    """,
-    unsafe_allow_html=True
-)
+page_bg_img = """
+<style>
+    .stApp {
+        background-color: #f5f0e6;  /* เปลี่ยนสีพื้นหลังตรงนี้ได้ */
+        background-size: cover;
+        background-position: center;
+    }
+    /* ปรับปุ่มใน sidebar และหน้าให้ดูเข้ากับพื้นหลัง */
+    .css-1offfwp.edgvbvh3 {
+        background-color: #f5f0e6;
+    }
+</style>
+"""
+st.markdown(page_bg_img, unsafe_allow_html=True)
 
 # --------------------------
 # Handle navigation via session state
@@ -56,18 +58,18 @@ if menu == "🏠 Home":
 
     st.markdown("---")
 
-    # แทรก Banner ก่อน Freemium Content
+    # Banner แทรกก่อน Freemium Content
     st.markdown(
         """
         <div style="text-align:center; margin-bottom:20px;">
-        <a href="https://www.instagram.com/p/C1361POJq5D/" target="_blank">
-            <img src="https://instagram.furt1-1.fna.fbcdn.net/v/t51.2885-15/e35/337678527_1411048994951328_3120957821569825604_n.jpg?stp=dst-jpg_s1080x1080&_nc_ht=instagram.furt1-1.fna.fbcdn.net&_nc_cat=101&_nc_ohc=wYb71PZ-CfYAX8RgSDa&edm=AOQ1c0wBAAAA&ccb=7-5&ig_cache_key=MzQ0NzI3NzM4OTk2MDg2NzYwNQ%3D%3D.2-ccb7-5&oh=00_AfDDDPXzXwX6ib_dEtO_Hh2LvAQjCr99Mf3VvRzKw09KRA&oe=6499A156&_nc_sid=8fd12b" 
+        <a href="https://cdn.shopify.com/s/files/1/0565/0956/3043/files/BG_Product_2048x2048.jpg?v=1742978458" target="_blank">
+            <img src="https://cdn.shopify.com/s/files/1/0565/0956/3043/files/BG_Product_2048x2048.jpg?v=1742978458" 
             alt="Banner" style="width:80%; border-radius:15px;">
         </a>
         </div>
         """, unsafe_allow_html=True
     )
-
+    
     st.markdown("## 📚 Freemium Content")
     st.write("อ่านบทความดูดวงฟรี เช่น ดวงประจำวัน ดวงความรัก การงาน การเงิน ฯลฯ")
 
@@ -141,6 +143,7 @@ if menu == "🏠 Home":
         if st.button("🧙 Vendor Login", key="home_vendor_btn"):
             st.session_state.menu = "🔮 Vendor Login"
             st.experimental_rerun()
+
 
 # --------------------------
 # MEMBER LOGIN PAGE
