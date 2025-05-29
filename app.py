@@ -11,18 +11,20 @@ st.set_page_config(
 )
 
 # --------------------------
-# Custom CSS for background and styling
+# Background image CSS
 # --------------------------
 page_bg_img = """
 <style>
     .stApp {
-        background-color: #f5f0e6;  /* เปลี่ยนสีพื้นหลังตรงนี้ได้ */
+        background-image: url("https://media.ganeshasnaga.com/2020/01/Ganeshas-Naga-for-web.jpg");
         background-size: cover;
         background-position: center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
     }
-    /* ปรับปุ่มใน sidebar และหน้าให้ดูเข้ากับพื้นหลัง */
+    /* ปรับ sidebar ให้มีพื้นหลังขาวโปร่งแสงอ่านง่าย */
     .css-1offfwp.edgvbvh3 {
-        background-color: #f5f0e6;
+        background-color: rgba(255,255,255,0.6);
     }
 </style>
 """
@@ -58,16 +60,14 @@ if menu == "🏠 Home":
 
     st.markdown("---")
 
-    # Banner แทรกก่อน Freemium Content
+    # Banner
     st.markdown(
         """
         <div style="text-align:center; margin-bottom:20px;">
-        <a href="https://cdn.shopify.com/s/files/1/0565/0956/3043/files/BG_Product_2048x2048.jpg?v=1742978458" target="_blank">
-            <img src="https://cdn.shopify.com/s/files/1/0565/0956/3043/files/BG_Product_2048x2048.jpg?v=1742978458" 
-            alt="Banner" style="width:80%; border-radius:15px;">
-        </a>
+            <img src="https://media.ganeshasnaga.com/2020/01/Ganeshas-Naga-for-web.jpg" alt="Banner" style="max-width: 100%; height: auto; border-radius: 15px;" />
         </div>
-        """, unsafe_allow_html=True
+        """,
+        unsafe_allow_html=True,
     )
     
     st.markdown("## 📚 Freemium Content")
