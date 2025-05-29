@@ -11,26 +11,6 @@ st.set_page_config(
 )
 
 # --------------------------
-# Background image CSS
-# --------------------------
-page_bg_img = """
-<style>
-    .stApp {
-        background-image: url("https://media.ganeshasnaga.com/2020/01/Ganeshas-Naga-for-web.jpg");
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-        background-attachment: fixed;
-    }
-    /* ปรับ sidebar ให้มีพื้นหลังขาวโปร่งแสงอ่านง่าย */
-    .css-1offfwp.edgvbvh3 {
-        background-color: rgba(255,255,255,0.6);
-    }
-</style>
-"""
-st.markdown(page_bg_img, unsafe_allow_html=True)
-
-# --------------------------
 # Handle navigation via session state
 # --------------------------
 if "menu" not in st.session_state:
@@ -60,7 +40,7 @@ if menu == "🏠 Home":
 
     st.markdown("---")
 
-    # Banner
+    # Banner แก้เป็นภาพใหม่
     st.markdown(
         """
         <div style="text-align:center; margin-bottom:20px;">
@@ -69,7 +49,7 @@ if menu == "🏠 Home":
         """,
         unsafe_allow_html=True,
     )
-    
+
     st.markdown("## 📚 Freemium Content")
     st.write("อ่านบทความดูดวงฟรี เช่น ดวงประจำวัน ดวงความรัก การงาน การเงิน ฯลฯ")
 
