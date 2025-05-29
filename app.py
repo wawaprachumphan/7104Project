@@ -32,21 +32,21 @@ if "menu" not in st.session_state:
 # Sidebar buttons as navigation
 # --------------------------
 with st.sidebar:
-    if st.button("🏠 Home", key="sidebar_home"):
-        st.session_state.menu = "🏠 Home"
-    if st.button("🔐 Member Login", key="sidebar_member"):
-        st.session_state.menu = "🔐 Member Login"
-    if st.button("🔮 Vendor Login", key="sidebar_vendor"):
-        st.session_state.menu = "🔮 Vendor Login"
-    if st.button("📜 คำทำนายและสินค้าแนะนำ", key="sidebar_result"):
-        st.session_state.menu = "📜 คำทำนายและสินค้าแนะนำ"
+    if st.button("Home", key="sidebar_home"):
+        st.session_state.menu = "Home"
+    if st.button("Member Login", key="sidebar_member"):
+        st.session_state.menu = "Member Login"
+    if st.button("Vendor Login", key="sidebar_vendor"):
+        st.session_state.menu = "Vendor Login"
+    if st.button("คำทำนายและสินค้าแนะนำ", key="sidebar_result"):
+        st.session_state.menu = "คำทำนายและสินค้าแนะนำ"
 
 menu = st.session_state.menu
 
 # --------------------------
 # HOME PAGE
 # --------------------------
-if menu == "🏠 Home":
+if menu == "Home":
     st.markdown("<h1 style='color:#6B4C3B;'>🔮 PryPround</h1>", unsafe_allow_html=True)
     st.write("เว็บไซต์ดูดวงออนไลน์ที่ให้คุณพบกับหมอดูจากทั่วไทย พร้อมระบบ AI แนะนำสินค้าเฉพาะคุณ ✨")
 
@@ -57,7 +57,7 @@ if menu == "🏠 Home":
 
     st.markdown("---")
     
-    st.markdown("## 📚 Freemium Content")
+    st.markdown("## Freemium Content")
     st.write("อ่านบทความดูดวงฟรี เช่น ดวงประจำวัน ดวงความรัก การงาน การเงิน ฯลฯ")
 
     col1, col2 = st.columns(2)
@@ -70,7 +70,7 @@ if menu == "🏠 Home":
             border-radius: 10px; 
             background-color: #f9f3ee;
             text-align: center;">
-            <h4>🔮 ดวงประจำวัน</h4>
+            <h4>ดวงประจำวัน</h4>
             <p>อัปเดตดวงรายวันตามวันเกิด</p>
             <img src="https://raw.githubusercontent.com/wawaprachumphan/7104Project/main/%E0%B8%94%E0%B8%A7%E0%B8%87%E0%B8%9B%E0%B8%A3%E0%B8%B0%E0%B8%88%E0%B8%B3%E0%B8%A7%E0%B8%B1%E0%B8%99.png" style="width: 100%; border-radius: 10px; margin-top: 10px;" />
         </div>
@@ -84,7 +84,7 @@ if menu == "🏠 Home":
             border-radius: 10px; 
             background-color: #f9f3ee;
             text-align: center;">
-            <h4>❤️ ดวงความรัก</h4>
+            <h4>❤ดวงความรัก</h4>
             <p>เช็คเสน่ห์ ความสัมพันธ์ และโอกาสความรักของคุณ</p>
             <img src="https://raw.githubusercontent.com/wawaprachumphan/7104Project/main/%E0%B8%94%E0%B8%A7%E0%B8%87%E0%B8%84%E0%B8%A7%E0%B8%B2%E0%B8%A1%E0%B8%A3%E0%B8%B1%E0%B8%81.png" style="width: 100%; border-radius: 10px; margin-top: 10px;" />
         </div>
@@ -98,7 +98,7 @@ if menu == "🏠 Home":
             border-radius: 10px; 
             background-color: #f9f3ee;
             text-align: center;">
-            <h4>💼 ดวงการงาน</h4>
+            <h4>ดวงการงาน</h4>
             <p>ทำนายโอกาสงาน การโปรโมท หรือการเปลี่ยนงาน</p>
             <img src="https://raw.githubusercontent.com/wawaprachumphan/7104Project/main/%E0%B8%94%E0%B8%A7%E0%B8%87%E0%B8%81%E0%B8%B2%E0%B8%A3%E0%B8%87%E0%B8%B2%E0%B8%99.png" style="width: 100%; border-radius: 10px; margin-top: 10px;" />
         </div>
@@ -112,7 +112,7 @@ if menu == "🏠 Home":
             border-radius: 10px; 
             background-color: #f9f3ee;
             text-align: center;">
-            <h4>💰 ดวงการเงิน</h4>
+            <h4>ดวงการเงิน</h4>
             <p>โชคลาภ รายได้ การลงทุน การใช้จ่าย</p>
             <img src="https://raw.githubusercontent.com/wawaprachumphan/7104Project/main/%E0%B8%94%E0%B8%A7%E0%B8%87%E0%B8%81%E0%B8%B2%E0%B8%A3%E0%B9%80%E0%B8%87%E0%B8%B4%E0%B8%99.png" style="width: 100%; border-radius: 10px; margin-top: 10px;" />
         </div>
@@ -122,21 +122,21 @@ if menu == "🏠 Home":
     col1, col2 = st.columns(2)
 
     with col1:
-        if st.button("🔐 Member Login", key="home_member_btn"):
-            st.session_state.menu = "🔐 Member Login"
+        if st.button("Member Login", key="home_member_btn"):
+            st.session_state.menu = "Member Login"
             st.experimental_rerun()
 
     with col2:
-        if st.button("🧙 Vendor Login", key="home_vendor_btn"):
-            st.session_state.menu = "🔮 Vendor Login"
+        if st.button("Vendor Login", key="home_vendor_btn"):
+            st.session_state.menu = "Vendor Login"
             st.experimental_rerun()
 
 
 # --------------------------
 # MEMBER LOGIN PAGE
 # --------------------------
-elif menu == "🔐 Member Login":
-    st.markdown("## 🔐 เข้าสู่ระบบสำหรับสมาชิก")
+elif menu == "Member Login":
+    st.markdown("## เข้าสู่ระบบสำหรับสมาชิก")
     st.text_input("ชื่อผู้ใช้")
     st.text_input("อีเมล")
     st.text_input("วันเดือนปีเกิด")
@@ -147,12 +147,12 @@ elif menu == "🔐 Member Login":
 # --------------------------
 # VENDOR LOGIN PAGE (ปรับใหม่แบ่ง 2 ส่วนตามขอ)
 # --------------------------
-elif menu == "🔮 Vendor Login":
-    st.markdown("## 🧙 เข้าสู่ระบบสำหรับหมอดู")
+elif menu == "Vendor Login":
+    st.markdown("## เข้าสู่ระบบสำหรับหมอดู")
 
     # ส่วน Login
     with st.container():
-        st.markdown("### 🔐 Login")
+        st.markdown("### Login")
         username = st.text_input("ชื่อผู้ใช้", key="vendor_username")
         email = st.text_input("อีเมล", key="vendor_email")
         password = st.text_input("รหัสผ่าน", type="password", key="vendor_password")
@@ -166,7 +166,7 @@ elif menu == "🔮 Vendor Login":
 
     # ส่วน สร้าง Slot การทำนาย
     with st.container():
-        st.markdown("### 🗓️ สร้าง Slot การทำนาย")
+        st.markdown("### 🗓สร้าง Slot การทำนาย")
 
         # ตัวอย่างรายชื่อลูกค้า (สมมติ)
         customer_list = ["ลูกค้า A", "ลูกค้า B", "ลูกค้า C", "ลูกค้า D"]
@@ -181,11 +181,11 @@ elif menu == "🔮 Vendor Login":
 # --------------------------
 # RESULT PAGE
 # --------------------------
-elif menu == "📜 คำทำนายและสินค้าแนะนำ":
-    st.markdown("## 📜 คำทำนายของคุณ")
+elif menu == "คำทำนายและสินค้าแนะนำ":
+    st.markdown("## คำทำนายของคุณ")
     st.write("✨ ช่วงเวลานี้ดวงของคุณโดดเด่นเรื่องโชคลาภทางการงานอย่างชัดเจน โอกาสใหม่ ๆ และความสำเร็จรอคุณอยู่...")
 
-    st.markdown("### 🎁 สินค้าแนะนำสำหรับคุณ")
+    st.markdown("### สินค้าแนะนำสำหรับคุณ")
 
     col1, col2, col3 = st.columns(3)
 
